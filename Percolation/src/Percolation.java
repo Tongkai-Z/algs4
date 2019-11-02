@@ -39,6 +39,11 @@ public class Percolation {
       if (row == n) {
         uf.union(bottom, index);
       }
+      // Easily making mistake here:
+      // the neiIndex != index + 1 || index - 1 || index + n || index - n
+      // It seems correct at first place, check the site at the right and the next row's left boundary
+      // They are not neighbor but the difference of their index is 1
+      // An afternoon work to fix this bug
       unionSite(index, row + 1, col);
       unionSite(index, row - 1, col);
       unionSite(index, row, col + 1);

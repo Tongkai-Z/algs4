@@ -117,7 +117,7 @@
       <updated>1572472724458</updated>
       <workItem from="1572472726024" duration="5298000" />
       <workItem from="1572556701847" duration="117000" />
-      <workItem from="1572706199259" duration="11910000" />
+      <workItem from="1572706199259" duration="12536000" />
     </task>
     <servers />
   </component>
@@ -139,12 +139,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Percolation.java</url>
-          <line>76</line>
+          <line>81</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Percolation.java</url>
-          <line>81</line>
+          <line>86</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
