@@ -18,8 +18,6 @@ public class FastCollinearPoints {
     // sort the array first to simplify the process of finding the two ends of the segment
     Arrays.sort(points);
     Point[] copy = new Point[len];
-    // use a set to dedup
-    Set<String> seen = new HashSet<>();
     for (int i = 0; i < len - 3; i++) {
       Point curr = points[i];
       int index = 0;
@@ -36,23 +34,22 @@ public class FastCollinearPoints {
       }
       // no duplicate element allowed so the first element is the point i itself
       int j = 1;
+      // O(n)
       while (j < len - 2) {
         int m = j + 1;
         while (m < len && slope[m] == slope[j]) {
           m++;
         }
-        if (m - j > 2) {
-          LineSegment line = new LineSegment(copy[0], copy[m - 1]);
-          // put the info of last point and the slope to the set
-          if (!seen.contains(copy[m - 1].toString() + slope[j])) {
-            seen.add(copy[m - 1].toString() + slope[j]);
-            lines.add(line);
-          }
+        // if current point is the lowest in the natural order, we add it to the result
+        if (m - j > 2 && curr.compareTo(copy[j]) < 0) {
+          LineSegment line = new LineSegment(curr, copy[m - 1]);
+          lines.add(line);
         }
         j = m;
       }
     }
   }
+
 
   /**
    * return number of line segments formed by the list of points
