@@ -6,6 +6,7 @@ import java.util.List;
 import edu.princeton.cs.algs4.StdDraw;
 
 public class BruteCollinearPoints {
+
   private List<LineSegment> lines;
 
 
@@ -20,10 +21,10 @@ public class BruteCollinearPoints {
     Arrays.sort(points);
     lines = new ArrayList<>();
     int len = points.length;
-    for (int i = 0;i < len - 3;i++) {
-      for (int j = i + 1;j < len - 2;j++) {
-        for (int m = j + 1;m < len - 1;m++) {
-          for (int n = m + 1;n < len;n++) {
+    for (int i = 0; i < len - 3; i++) {
+      for (int j = i + 1; j < len - 2; j++) {
+        for (int m = j + 1; m < len - 1; m++) {
+          for (int n = m + 1; n < len; n++) {
             if (collinear(points[i], points[j], points[m], points[n])) {
               lines.add(new LineSegment(points[i], points[n]));
             }
@@ -66,8 +67,8 @@ public class BruteCollinearPoints {
     if (points == null) {
       throw new IllegalArgumentException("Invalid input");
     }
-    for (int i = 0;i < points.length;i++) {
-      for (int j = i + 1;j < points.length;j++) {
+    for (int i = 0; i < points.length; i++) {
+      for (int j = i + 1; j < points.length; j++) {
         if (points[i] == null || points[j] == null || points[i] == points[j]) {
           throw new IllegalArgumentException("Invalid input");
         }
@@ -77,6 +78,7 @@ public class BruteCollinearPoints {
 
   /**
    * This method checks if four points are collinear or not based on their slopes
+   *
    * @param p1 point1
    * @param p2 point2
    * @param p3 point3
