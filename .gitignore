@@ -3,4 +3,6 @@
 *.txt
 *.png
 *.jar
+.DS_Store
+*.zip
 
