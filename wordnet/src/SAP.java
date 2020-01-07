@@ -1,6 +1,7 @@
 import edu.princeton.cs.algs4.BreadthFirstDirectedPaths;
 import edu.princeton.cs.algs4.Digraph;
 import edu.princeton.cs.algs4.In;
+import java.util.Arrays;
 
 public class SAP {
   private Digraph G;
@@ -12,36 +13,12 @@ public class SAP {
 
   // length of shortest ancestral path between v and w; -1 if no such path
   public int length(int v, int w) {
-    BreadthFirstDirectedPaths bpV = new BreadthFirstDirectedPaths(G, v);
-    BreadthFirstDirectedPaths bpW = new BreadthFirstDirectedPaths(G, w);
-    int minDis = -1;
-    for (int i = 0;i < G.V();i++) {
-      if (bpV.hasPathTo(i) && bpW.hasPathTo(i)) {
-        int sum = bpV.distTo(i) + bpW.distTo(i);
-        if (minDis == -1 || minDis > sum) {
-          minDis = sum;
-        }
-      }
-    }
-    return minDis;
+    return length(Arrays.asList(v), Arrays.asList(w));
   }
 
   // a common ancestor of v and w that participates in a shortest ancestral path; -1 if no such path
   public int ancestor(int v, int w) {
-    BreadthFirstDirectedPaths bpV = new BreadthFirstDirectedPaths(G, v);
-    BreadthFirstDirectedPaths bpW = new BreadthFirstDirectedPaths(G, w);
-    int minDis = -1;
-    int ca = -1;
-    for (int i = 0;i < G.V();i++) {
-      if (bpV.hasPathTo(i) && bpW.hasPathTo(i)) {
-        int sum = bpV.distTo(i) + bpW.distTo(i);
-        if (minDis == -1 || minDis > sum) {
-          minDis = sum;
-          ca = i;
-        }
-      }
-    }
-    return ca;
+    return ancestor(Arrays.asList(v), Arrays.asList(w));
   }
 
   // length of shortest ancestral path between any vertex in v and any vertex in w; -1 if no such path
