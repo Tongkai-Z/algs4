@@ -8,6 +8,9 @@ public class SAP {
 
   // constructor takes a digraph (not necessarily a DAG)
   public SAP(Digraph G) {
+    if (G == null) {
+      throw new IllegalArgumentException("G can't be set to null");
+    }
     this.G = G;
   }
 
