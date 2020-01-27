@@ -3,7 +3,7 @@ import java.awt.Color;
 
 public class SeamCarver {
   private Picture pic;
-  public double[][] energyM;
+  private double[][] energyM;
   private boolean isTransposed;
   private boolean isHorizontalCall;
 
@@ -146,6 +146,7 @@ public class SeamCarver {
       transpose();
       isTransposed = false;
     }
+    if (seam == null || seam.length != energyM.length)
     // seam[i] = j means pixel(j, i) need to be removed
     int r = energyM.length;
     int c = energyM[0].length;
