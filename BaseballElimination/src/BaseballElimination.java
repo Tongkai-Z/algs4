@@ -33,7 +33,7 @@ public class BaseballElimination {
     index = new HashMap<>();
     while (in.hasNextLine()) {
       String line = in.readLine();
-      String[] info = line.split("\\s+");
+      String[] info = line.trim().split("\\s+");
       teams[curr] = info[0];
       index.put(info[0], curr);
       w[curr] = Integer.parseInt(info[1]);
@@ -161,7 +161,7 @@ public class BaseballElimination {
   }
 
   public static void main(String[] args) {
-    BaseballElimination division = new BaseballElimination(args[0]);
+    BaseballElimination division = new BaseballElimination("./data/teams29.txt");
     for (String team : division.teams()) {
       if (division.isEliminated(team)) {
         StdOut.print(team + " is eliminated by the subset R = { ");
